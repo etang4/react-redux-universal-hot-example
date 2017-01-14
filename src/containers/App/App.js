@@ -89,12 +89,12 @@ export default class App extends Component {
               <NavItem eventKey={5}>About Us</NavItem>
             </LinkContainer>
           </Nav>
-          {user &&
-          <p className={styles.loggedInMessage + ' navbar-text'}>Logged in as <strong>{user.name}</strong>.</p>}
           <Nav navbar pullRight>
             {/* <NavItem eventKey={1} target="_blank" title="View on Github" href="https://github.com/erikras/react-redux-universal-hot-example">
               <i className="fa fa-github"/>
             </NavItem> */}
+            {user &&
+            <p className={styles.loggedInMessage + ' navbar-text'}><strong>{user.name}</strong></p>}
             {!user &&
             <LinkContainer to="/login">
               <NavItem eventKey={1}>Login</NavItem>
@@ -119,9 +119,17 @@ export default class App extends Component {
       <div className={styles.app}>
         <Helmet {...config.app.head}/>
         {this.renderNavbar(user, styles)}
+        <div className="row">
+          <div className={`col-md-8 col-md-offset-2 ${styles.appContent}`}>
+            {this.props.children}
+          </div>
+        </div>
 
-        <div className={styles.appContent}>
-          {this.props.children}
+        <div className={`col-md-2 ${styles.navColumn}`}>
+          Side column
+        </div>
+        <div className={`col-md-2 ${styles.chatColumn}`}>
+          <h3>Chat Sidebar</h3>
         </div>
       </div>
     );

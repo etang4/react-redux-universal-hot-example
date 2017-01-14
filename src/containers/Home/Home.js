@@ -25,16 +25,14 @@ export default class Home extends Component {
             url('${randomFact.backgroundImage}') no-repeat`
           }}
         >
-          <div className="container">
+          <div className="row">
             <div className={styles.logo}>
               <p>
                 <img src={logoImage}/>
               </p>
             </div>
             <h1>{randomFact.cityName}</h1>
-
             <h2>{randomFact.fact}</h2>
-
           </div>
         </div>
 
