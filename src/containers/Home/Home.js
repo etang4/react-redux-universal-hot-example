@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { CounterButton, GithubButton } from 'components';
-import config from '../../config';
+// import { Link } from 'react-router';
+// import { CounterButton } from 'components';
+// import config from '../../config';
 import Helmet from 'react-helmet';
 
 export default class Home extends Component {
@@ -10,48 +10,36 @@ export default class Home extends Component {
     const styles = require('./Home.scss');
     // require the logo image both from client and server
     const logoImage = require('./logo.png');
-
+    const randomFact = {
+      cityName: 'Santa Monica, California, USA',
+      fact: 'Long inhabited by the Tongva people, Santa Monica was called Kecheek in the Tongva language',
+      backgroundImage: 'https://midestination.wpengine.com/wp-content/themes/destination-pages-client/img/hero-santa-monica.jpg'
+    };
     return (
       <div className={styles.home}>
         <Helmet title="Home"/>
-        <div className={styles.masthead}>
+        <div
+          className={styles.masthead}
+          style={{
+            'background': `linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),
+            url('${randomFact.backgroundImage}') no-repeat`
+          }}
+        >
           <div className="container">
             <div className={styles.logo}>
               <p>
                 <img src={logoImage}/>
               </p>
             </div>
-            <h1>{config.app.title}</h1>
+            <h1>{randomFact.cityName}</h1>
 
-            <h2>{config.app.description}</h2>
+            <h2>{randomFact.fact}</h2>
 
-            <p>
-              <a className={styles.github} href="https://github.com/erikras/react-redux-universal-hot-example"
-                 target="_blank">
-                <i className="fa fa-github"/> View on Github
-              </a>
-            </p>
-            <GithubButton user="erikras"
-                          repo="react-redux-universal-hot-example"
-                          type="star"
-                          width={160}
-                          height={30}
-                          count large/>
-            <GithubButton user="erikras"
-                          repo="react-redux-universal-hot-example"
-                          type="fork"
-                          width={160}
-                          height={30}
-                          count large/>
-
-            <p className={styles.humility}>
-              Created and maintained by <a href="https://twitter.com/erikras" target="_blank">@erikras</a>.
-            </p>
           </div>
         </div>
 
         <div className="container">
-          <div className={styles.counterContainer}>
+          {/* <div className={styles.counterContainer}>
             <CounterButton multireducerKey="counter1"/>
             <CounterButton multireducerKey="counter2"/>
             <CounterButton multireducerKey="counter3"/>
@@ -177,7 +165,7 @@ export default class Home extends Component {
 
           <p>Thanks for taking the time to check this out.</p>
 
-          <p>– Erik Rasmussen</p>
+          <p>– Erik Rasmussen</p> */}
         </div>
       </div>
     );

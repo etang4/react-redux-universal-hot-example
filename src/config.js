@@ -18,7 +18,7 @@ module.exports = Object.assign({
     title: 'Travelr',
     description: 'The Traveler\'s Social Media',
     head: {
-      titleTemplate: 'Travelr %s',
+      titleTemplate: 'Travelr - %s',
       meta: [
         {name: 'description', content: 'The Traveler\'s Social Media'},
         {charset: 'utf-8'},
