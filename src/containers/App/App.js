@@ -88,24 +88,23 @@ export default class App extends Component {
             <LinkContainer to="/about">
               <NavItem eventKey={5}>About Us</NavItem>
             </LinkContainer>
-
-            {!user &&
-            <LinkContainer to="/login">
-              <NavItem eventKey={6}>Login</NavItem>
-            </LinkContainer>}
-            {user &&
-            <LinkContainer to="/logout">
-              <NavItem eventKey={7} className="logout-link" onClick={this.handleLogout}>
-                Logout
-              </NavItem>
-            </LinkContainer>}
           </Nav>
           {user &&
           <p className={styles.loggedInMessage + ' navbar-text'}>Logged in as <strong>{user.name}</strong>.</p>}
           <Nav navbar pullRight>
-            <NavItem eventKey={1} target="_blank" title="View on Github" href="https://github.com/erikras/react-redux-universal-hot-example">
+            {/* <NavItem eventKey={1} target="_blank" title="View on Github" href="https://github.com/erikras/react-redux-universal-hot-example">
               <i className="fa fa-github"/>
-            </NavItem>
+            </NavItem> */}
+            {!user &&
+            <LinkContainer to="/login">
+              <NavItem eventKey={1}>Login</NavItem>
+            </LinkContainer>}
+            {user &&
+            <LinkContainer to="/logout">
+              <NavItem eventKey={2} className="logout-link" onClick={this.handleLogout}>
+                Logout
+              </NavItem>
+            </LinkContainer>}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
