@@ -5,12 +5,15 @@ import { LinkContainer } from 'react-router-bootstrap';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 import Helmet from 'react-helmet';
 import { isLoaded as isInfoLoaded, load as loadInfo } from 'redux/modules/info';
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
 import { push } from 'react-router-redux';
 import config from '../../config';
 import { asyncConnect } from 'redux-async-connect';
+import { ColumnNavigation } from 'components';
 
 @asyncConnect([{
   promise: ({store: {dispatch, getState}}) => {
@@ -119,18 +122,30 @@ export default class App extends Component {
       <div className={styles.app}>
         <Helmet {...config.app.head}/>
         {this.renderNavbar(user, styles)}
-        <div className="row">
-          <div className={`col-md-8 col-md-offset-2 ${styles.appContent}`}>
+        <Row>
+          <Col
+            xs={12}
+            md={8}
+            mdOffset={2}
+            className={styles.appContent}
+          >
             {this.props.children}
-          </div>
-        </div>
-
-        <div className={`col-md-2 ${styles.navColumn}`}>
-          Side column
-        </div>
-        <div className={`col-md-2 ${styles.chatColumn}`}>
+          </Col>
+        </Row>
+        <Col
+          md={2}
+          xs={3}
+          className={styles.navColumn}
+        >
+          <ColumnNavigation />
+        </Col>
+        <Col
+          md={2}
+          xs={3}
+          className={styles.chatColumn}
+        >
           <h3>Chat Sidebar</h3>
-        </div>
+        </Col>
       </div>
     );
   }
