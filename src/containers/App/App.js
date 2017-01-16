@@ -60,8 +60,11 @@ export default class App extends Component {
     this.props.logout();
   };
 
-  renderNavbar(user, styles) {
-    return (
+  render() {
+    const {user} = this.props;
+    const styles = require('./App.scss');
+
+    const renderNavbar = currentUser =>
       <Navbar fixedTop>
         <Navbar.Header>
           <Navbar.Brand>
@@ -75,53 +78,48 @@ export default class App extends Component {
 
         <Navbar.Collapse eventKey={0}>
           <Nav navbar>
-            {user && <LinkContainer to="/chat">
+            {currentUser && <LinkContainer to="/chat">
               <NavItem eventKey={1}>Chat</NavItem>
             </LinkContainer>}
 
             <LinkContainer to="/widgets">
               <NavItem eventKey={2}>Widgets</NavItem>
             </LinkContainer>
-            <LinkContainer to="/survey">
-              <NavItem eventKey={3}>Survey</NavItem>
-            </LinkContainer>
             <LinkContainer to="/pagination">
-              <NavItem eventKey={4}>Pagination</NavItem>
+              <NavItem eventKey={3}>Pagination</NavItem>
             </LinkContainer>
             <LinkContainer to="/about">
-              <NavItem eventKey={5}>About Us</NavItem>
+              <NavItem eventKey={4}>About Us</NavItem>
             </LinkContainer>
           </Nav>
           <Nav navbar pullRight>
             {/* <NavItem eventKey={1} target="_blank" title="View on Github" href="https://github.com/erikras/react-redux-universal-hot-example">
               <i className="fa fa-github"/>
             </NavItem> */}
-            {user &&
-            <p className={styles.loggedInMessage + ' navbar-text'}><strong>{user.name}</strong></p>}
-            {!user &&
-            <LinkContainer to="/login">
-              <NavItem eventKey={1}>Login</NavItem>
+            {currentUser &&
+            <p className={styles.loggedInMessage + ' navbar-text'}><strong>{currentUser.name}</strong></p>}
+            {!currentUser &&
+            <LinkContainer to="/signup">
+              <NavItem eventKey={1}>Join</NavItem>
             </LinkContainer>}
-            {user &&
+            {!currentUser &&
+            <LinkContainer to="/login">
+              <NavItem eventKey={2}>Login</NavItem>
+            </LinkContainer>}
+            {currentUser &&
             <LinkContainer to="/logout">
-              <NavItem eventKey={2} className="logout-link" onClick={this.handleLogout}>
+              <NavItem eventKey={1} className="logout-link" onClick={this.handleLogout}>
                 Logout
               </NavItem>
             </LinkContainer>}
           </Nav>
         </Navbar.Collapse>
-      </Navbar>
-    );
-  }
-
-  render() {
-    const {user} = this.props;
-    const styles = require('./App.scss');
+      </Navbar>;
 
     return (
       <div className={styles.app}>
         <Helmet {...config.app.head}/>
-        {this.renderNavbar(user, styles)}
+        {renderNavbar(user)}
         <Row>
           <Col
             xs={12}

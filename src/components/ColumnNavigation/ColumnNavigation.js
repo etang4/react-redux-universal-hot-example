@@ -17,7 +17,7 @@ export default class ColumnNavigation extends Component {
             My World
           </Button>
       </LinkContainer>
-        <LinkContainer to="/survey">
+        <LinkContainer to="/signup">
           <Button
             bsStyle="primary"
             bsSize="large"
