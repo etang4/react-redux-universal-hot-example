@@ -8,7 +8,7 @@ export default class ColumnNavigation extends Component {
     const styles = require('./ColumnNavigation.scss');
     return (
       <div className={styles.columnNavigationContainer}>
-        <LinkContainer to="/widgets">
+        <LinkContainer to="/chat">
           <Button
             bsStyle="primary"
             bsSize="large"

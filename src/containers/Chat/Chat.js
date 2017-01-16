@@ -54,7 +54,7 @@ export default class Chat extends Component {
     const {user} = this.props;
 
     return (
-      <div className={style.chat + ' container'}>
+      <div className={style.chat}>
         <h1 className={style}>Chat</h1>
 
         {user &&
@@ -64,8 +64,8 @@ export default class Chat extends Component {
             return <li key={`chat.msg.${msg.id}`}>{msg.from}: {msg.text}</li>;
           })}
           </ul>
-          <form className="login-form" onSubmit={this.handleSubmit}>
-            <input type="text" ref="message" placeholder="Enter your message"
+          <form className="login-form flexRow" onSubmit={this.handleSubmit}>
+            <input type="text" ref="message" placeholder="Enter message"
              value={this.state.message}
              onChange={(event) => {
                this.setState({message: event.target.value});

@@ -14,6 +14,7 @@ import { push } from 'react-router-redux';
 import config from '../../config';
 import { asyncConnect } from 'redux-async-connect';
 import { ColumnNavigation } from 'components';
+import { Chat } from 'containers';
 
 @asyncConnect([{
   promise: ({store: {dispatch, getState}}) => {
@@ -77,7 +78,7 @@ export default class App extends Component {
         </Navbar.Header>
 
         <Navbar.Collapse eventKey={0}>
-          <Nav navbar>
+          {/* <Nav navbar>
             {currentUser && <LinkContainer to="/chat">
               <NavItem eventKey={1}>Chat</NavItem>
             </LinkContainer>}
@@ -91,7 +92,7 @@ export default class App extends Component {
             <LinkContainer to="/about">
               <NavItem eventKey={4}>About Us</NavItem>
             </LinkContainer>
-          </Nav>
+          </Nav> */}
           <Nav navbar pullRight>
             {/* <NavItem eventKey={1} target="_blank" title="View on Github" href="https://github.com/erikras/react-redux-universal-hot-example">
               <i className="fa fa-github"/>
@@ -142,7 +143,7 @@ export default class App extends Component {
           xs={3}
           className={styles.chatColumn}
         >
-          <h3>Chat Sidebar</h3>
+          {user && <Chat />}
         </Col>
       </div>
     );
