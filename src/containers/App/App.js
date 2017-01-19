@@ -121,7 +121,14 @@ export default class App extends Component {
       <div className={styles.app}>
         <Helmet {...config.app.head}/>
         {renderNavbar(user)}
-        <Row>
+        {user && <Row>
+          <Col
+            md={2}
+            xs={3}
+            className={styles.navColumn}
+          >
+            <ColumnNavigation />
+          </Col>
           <Col
             xs={12}
             md={8}
@@ -130,21 +137,15 @@ export default class App extends Component {
           >
             {this.props.children}
           </Col>
-        </Row>
-        {user && <Col
-          md={2}
-          xs={3}
-          className={styles.navColumn}
-        >
-          <ColumnNavigation />
-        </Col>}
-        {user && <Col
-          md={2}
-          xs={3}
-          className={styles.chatColumn}
-        >
-          <Chat />
-        </Col>}
+          <Col
+            md={2}
+            xs={3}
+            className={styles.chatColumn}
+          >
+            <Chat />
+          </Col>
+        </Row>}
+        {!user && this.props.children}
       </div>
     );
   }
