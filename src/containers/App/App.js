@@ -131,20 +131,20 @@ export default class App extends Component {
             {this.props.children}
           </Col>
         </Row>
-        <Col
+        {user && <Col
           md={2}
           xs={3}
           className={styles.navColumn}
         >
           <ColumnNavigation />
-        </Col>
-        <Col
+        </Col>}
+        {user && <Col
           md={2}
           xs={3}
           className={styles.chatColumn}
         >
-          {user && <Chat />}
-        </Col>
+          <Chat />
+        </Col>}
       </div>
     );
   }

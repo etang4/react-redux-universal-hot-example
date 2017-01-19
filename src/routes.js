@@ -2,16 +2,17 @@ import React from 'react';
 import {IndexRoute, Route} from 'react-router';
 import { isLoaded as isAuthLoaded, load as loadAuth } from 'redux/modules/auth';
 import {
+    About,
     App,
     Chat,
     Home,
-    Widgets,
-    About,
     Login,
     LoginSuccess,
-    Signup,
     NotFound,
     Pagination,
+    Signup,
+    Welcome,
+    Widgets,
   } from 'containers';
 
 export default (store) => {
@@ -20,7 +21,7 @@ export default (store) => {
       const { auth: { user }} = store.getState();
       if (!user) {
         // oops, not logged in, so can't be here!
-        replace('/');
+        replace('/welcome');
       }
       cb();
     }
@@ -38,20 +39,21 @@ export default (store) => {
   return (
     <Route path="/" component={App}>
       { /* Home (main) route */ }
-      <IndexRoute component={Home}/>
+      <IndexRoute component={Home} onEnter={requireLogin}/>
 
       { /* Routes requiring login */ }
       <Route onEnter={requireLogin}>
+        <Route path="about" component={About}/>
         <Route path="chat" component={Chat}/>
         <Route path="loginSuccess" component={LoginSuccess}/>
+        <Route path="pagination" component={Pagination}/>
+        <Route path="widgets" component={Widgets}/>
       </Route>
 
       { /* Routes */ }
-      <Route path="about" component={About}/>
+      <Route path="welcome" component={Welcome}/>
       <Route path="login" component={Login}/>
-      <Route path="pagination" component={Pagination}/>
       <Route path="signup" component={Signup}/>
-      <Route path="widgets" component={Widgets}/>
 
       { /* Catch all route */ }
       <Route path="*" component={NotFound} status={404} />
