@@ -1,8 +1,9 @@
 import React, {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
-import {initialize} from 'redux-form';
-import {SignupForm} from 'components';
+import { initialize } from 'redux-form';
+import { SignupForm } from 'components';
+import Col from 'react-bootstrap/lib/Col';
 
 @connect(
   () => ({}),
@@ -28,21 +29,19 @@ export default class Signup extends Component {
   // }
 
   render() {
+    const styles = require('./Signup.scss');
+
     return (
-      <div>
-        <h1 className="alignCenter">Welcome to Travelr, where traveling becomes social</h1>
-        <Helmet title="Signup"/>
-
-        {/* <div style={{textAlign: 'center', margin: 15}}>
-          <button className="btn btn-primary" onClick={this.handleInitialize}>
-            <i className="fa fa-pencil"/> Initialize Form
-          </button>
-        </div>
-
-        <p>The circles to the left of the inputs correspond to flags provided by <code>redux-form</code>:
-          Touched, Visited, Active, and Dirty.</p> */}
-
-        <SignupForm onSubmit={this.handleSubmit}/>
+      <div className={styles.signupContainer + ' row'}>
+        <Col
+          md={4}
+          mdOffset={4}
+          className={styles.signupBox + ' p20 animated fadeInDown'}
+        >
+          <h1 className="alignCenter">Share your Adventures</h1>
+          <Helmet title="Signup"/>
+          <SignupForm onSubmit={this.handleSubmit}/>
+        </Col>
       </div>
     );
   }

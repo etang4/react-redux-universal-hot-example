@@ -15,7 +15,7 @@ export default class Welcome extends Component {
       >
         <Helmet title="Welcome" />
         <div className={styles.welcomeMessage + ' p20 animated fadeIn'}>
-          <h1>Don't just travel, be a Travelr</h1>
+          <h1>Don't just travel, Become a Travelr</h1>
           <h3>Share your unique travel experience today!</h3>
           <LinkContainer to="/signup">
             <Button
