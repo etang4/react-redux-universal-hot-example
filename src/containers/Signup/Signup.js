@@ -18,16 +18,6 @@ export default class Signup extends Component {
     this.props.initialize('signup', {});
   }
 
-  // handleInitialize = () => {
-  //   this.props.initialize('survey', {
-  //     name: 'Little Bobby Tables',
-  //     email: 'bobby@gmail.com',
-  //     password: 'Redux Wizard',
-  //     currentlyEmployed: true,
-  //     sex: 'male'
-  //   });
-  // }
-
   render() {
     const styles = require('./Signup.scss');
 
