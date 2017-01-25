@@ -7,11 +7,9 @@ export default class Welcome extends Component {
 
   render() {
     const styles = require('./Welcome.scss');
-    const bgImageURL = 'http://www.acmetravel.it/newsite/wp-content/uploads/2016/05/viaggiare-in-tutto-il-mondo.jpg';
     return (
       <div
         className={styles.welcomeContainer}
-        style={{'background': `url(${bgImageURL})`}}
       >
         <Helmet title="Welcome" />
         <div className={styles.welcomeMessage + ' p20 animated fadeIn'}>
