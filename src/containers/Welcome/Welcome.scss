@@ -1,15 +1,32 @@
 @import "../../theme/variables.scss";
 
 .welcomeContainer {
-  background: url('http://www.acmetravel.it/newsite/wp-content/uploads/2016/05/viaggiare-in-tutto-il-mondo.jpg') no-repeat center center fixed;
-  @include background-size('cover');
-  display: flex;
   position: absolute;
-  top:50px;
+  top: 0;
   left:0;
   right:0;
   bottom:0;
+  overflow: hidden;
+  video {
+    object-fit: contain;
+    position: absolute;
+    top: auto;
+    right: 0;
+    left: auto;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    background: url('https://s3-us-west-1.amazonaws.com/travelr-california/travelr-welcome-mp4-poster.png') no-repeat;
+    @include background-size('cover');
+  }
   .welcomeMessage{
+    position:absolute;
+    @include transform(translateX(-50%) translateY(-50%));
+    top: 50%;
+    left: 50%;
     text-align: center;
     margin: auto;
     background: rgba(0,0,0,0.5);

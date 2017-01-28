@@ -12,6 +12,15 @@ export default class Welcome extends Component {
         className={styles.welcomeContainer}
       >
         <Helmet title="Welcome" />
+        <video
+          src="https://s3-us-west-1.amazonaws.com/travelr-california/travelr-welcome.mp4"
+          playsinline
+          autoPlay
+          muted
+          loop
+          poster="https://s3-us-west-1.amazonaws.com/travelr-california/travelr-welcome-mp4-poster.png"
+        >
+        </video>
         <div className={styles.welcomeMessage + ' p20 animated fadeIn'}>
           <h1>Don't just travel, Become a Travelr</h1>
           <h3>Share your unique travel experience today!</h3>
