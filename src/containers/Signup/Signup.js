@@ -26,7 +26,7 @@ export default class Signup extends Component {
         <Col
           md={4}
           mdOffset={4}
-          className={styles.signupBox + ' p20 animated fadeInDown'}
+          className="p20 animated fadeInDown"
         >
           <h1 className="alignCenter">Share your Adventures</h1>
           <Helmet title="Signup"/>

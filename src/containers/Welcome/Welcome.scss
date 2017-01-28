@@ -23,13 +23,17 @@
     @include background-size('cover');
   }
   .welcomeMessage{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     position:absolute;
-    @include transform(translateX(-50%) translateY(-50%));
-    top: 50%;
-    left: 50%;
+    top: 50px;
+    left: 0;
+    right:0;
+    bottom:0;
     text-align: center;
-    margin: auto;
     background: rgba(0,0,0,0.5);
+    @include background-size('cover');
     @include border-radius(10px);
     h1 ,h3 {
       color: white;

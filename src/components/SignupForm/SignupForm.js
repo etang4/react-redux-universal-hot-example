@@ -57,7 +57,7 @@ class SignupForm extends Component {
       <div>
         <form className="form-horizontal" onSubmit={handleSubmit}>
           {renderInput(name, 'Full Name', 'text')}
-          {renderInput(email, 'Email', 'text', true)}
+          {renderInput(email, 'Email', 'email', true)}
           {renderInput(password, 'Create Password', 'password')}
           {renderInput(age, 'Age', 'number')}
           <div className="form-group">
